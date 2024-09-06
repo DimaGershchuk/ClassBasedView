@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Список Книг{% endblock %}
+
+{% block content %}
+    <h1>Список Книг</h1>
+    <a href="{% url 'book_create' %}" class="btn">Додати нову книгу</a>
+    <ul class="book-list">
+        {% for book in books %}
+            <li>
+                <h2><a href="{% url 'book_detail' book.id %}">{{ book.title }}</a></h2>
+                <p>Автор: {{ book.author }}</p>
+                <p>Дата публікації: {{ book.published_date }}</p>
+                <p>ISBN: {{ book.isbn }}</p>
+                <a href="{% url 'book_update' book.id %}" class="btn">Редагувати</a>
+                <a href="{% url 'book_delete' book.id %}" class="btn-delete">Видалити</a>
+            </li>
+        {% empty %}
+            <p>Немає книг у базі даних.</p>
+        {% endfor %}
+    </ul>
+{% endblock %}

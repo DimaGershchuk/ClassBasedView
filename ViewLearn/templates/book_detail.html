@@ -1,0 +1,13 @@
+<!-- book_detail.html -->
+
+{% extends 'base.html' %}
+
+{% block title %}Деталі Книги{% endblock %}
+
+{% block content %}
+    <h1>{{ book.title }}</h1>
+    <p><strong>Автор:</strong> {{ book.author }}</p>
+    <p><strong>Дата публікації:</strong> {{ book.published_date }}</p>
+    <p><strong>ISBN:</strong> {{ book.isbn }}</p>
+
+{% endblock %}
